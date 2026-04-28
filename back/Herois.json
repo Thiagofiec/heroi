@@ -1,0 +1,119 @@
+{
+  "Herois": [
+    {
+      "nome": "heroi5",
+      "classe": "guerreiro",
+      "xp": 0,
+      "xpMax": 100,
+      "img": "./assets/Paladin.svj",
+      "tipo": "dps",
+      "ativo": true,
+      "id": 0
+    },
+    {
+      "nome": "heroi10",
+      "classe": "barbaro",
+      "xp": 0,
+      "xpMax": 100,
+      "img": "./assets/Paladin.svj",
+      "tipo": "dps",
+      "ativo": true,
+      "id": 1
+    },
+    {
+      "nome": "heroi15",
+      "classe": "patrulherp",
+      "xp": 0,
+      "xpMax": 100,
+      "img": "./assets/Paladin.svj",
+      "tipo": "dps",
+      "ativo": true,
+      "id": 2
+    },
+    {
+      "nome": "fsf",
+      "classe": "[object Object]",
+      "nivel": "7",
+      "xp": 0,
+      "xpMax": 400,
+      "img": "a",
+      "ativo": true,
+      "id": 3
+    },
+    {
+      "nome": "marcelo",
+      "classe": "6",
+      "nivel": "3",
+      "xp": 0,
+      "xpMax": 200,
+      "img": "a",
+      "tipo": "",
+      "ativo": true,
+      "id": 4
+    },
+    {
+      "nome": "asdfghjkll",
+      "classe": "4",
+      "nivel": "2",
+      "xp": 0,
+      "xpMax": 150,
+      "img": "a",
+      "tipo": "",
+      "ativo": true,
+      "id": 5
+    },
+    {
+      "nome": "qwe",
+      "classe": "2",
+      "nivel": "4",
+      "xp": 0,
+      "xpMax": 250,
+      "img": "a",
+      "tipo": "",
+      "ativo": true,
+      "id": 6
+    },
+    {
+      "nome": "qqw",
+      "classe": "3",
+      "nivel": "1",
+      "xp": 0,
+      "xpMax": 100,
+      "img": "a",
+      "tipo": "",
+      "ativo": true,
+      "id": 7
+    },
+    {
+      "nome": "rtyu",
+      "nivel": "2",
+      "xp": 0,
+      "xpMax": 150,
+      "img": "a",
+      "tipo": "",
+      "ativo": true,
+      "id": 8
+    },
+    {
+      "nome": "....",
+      "nivel": "2",
+      "xp": 0,
+      "xpMax": 150,
+      "img": "a",
+      "tipo": "",
+      "ativo": true,
+      "id": 9
+    },
+    {
+      "nome": "6363",
+      "classe": "3",
+      "nivel": "2",
+      "xp": 0,
+      "xpMax": 150,
+      "img": "a",
+      "tipo": "",
+      "ativo": true,
+      "id": 10
+    }
+  ]
+}

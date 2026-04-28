@@ -1,0 +1,35 @@
+{
+    "Classes": [
+    {
+      "id": 1,
+      "nome": "Guerreiro",
+      "tipo": "dps"
+    },
+    {
+      "id": 2,
+      "nome": "Atirador",
+      "tipo": "dps"
+    },
+    {
+      "id": 3,
+      "nome": "Paladino",
+      "tipo": "tank"
+    },
+    {
+      "id": 4,
+      "nome": "Sentinela",
+      "tipo": "tank"
+    },
+    {
+      "id": 5,
+      "nome": "Clerigo",
+      "tipo": "suporte"
+    },
+    {
+      "id": 6,
+      "nome": "General",
+      "tipo": "suporte"
+    }
+
+  ]
+}
