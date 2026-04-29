@@ -29,7 +29,7 @@ export function Card({ heroi}) {
         style={{ width: "100%", borderRadius: "8px" }}
       />
 
-      <h2>{heroi.nome} LV {heroi.Nivel}</h2>
+      <h2>{heroi.nome} LV {heroi.nivel}</h2>
       <p>Classe: {heroi.classe}</p>
 
       <button

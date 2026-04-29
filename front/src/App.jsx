@@ -36,31 +36,8 @@ export function App() {
   const [menuNHAberto, setMenuNHAberto] = useState(false);
   const [nome,setNome] = useState('')
   const [classe,setClasse] = useState(1)
-  const [classeNome,setClasseNome] = useState()
-  const [tipo,setTipo] = useState('')
   const [nivel,setNivel] = useState(0)
 
-  useEffect(() =>{
-    
-    setClasseNome(classes.forEach(c => {
-      if(c.id === classe){
-        
-        const cl = c.nome
-        return cl
-      }
-    }))
-  }, classe )
-
-    useEffect(() =>{
-    
-    setTipo(classes.forEach(c => {
-      if(c.id === classe){
-        
-        const cl = c.tipo
-        return cl
-      }
-    }))
-  }, classe )
 
 
   function novoHeroi(e) {
@@ -70,7 +47,10 @@ export function App() {
 
     if(ouro - preco < 0){
       return
-    }
+    } 
+
+    let tipo = ''
+    let classeNome = ''
 
     
 
@@ -86,24 +66,19 @@ export function App() {
 
     setOuro[ouro - preco]
     const img = "a"
-    
-    classes
 
-    // classes.forEach(c => {
-    //   if(c.id === classe){
-        
-    //     setTipo(c.tipo)
-    //     setClasse(c.nome)
-    //     return
-    //   }
-    // });
+    const encontrada = classes.find(c => c.id === Number(classe));
+    if (encontrada) {
+      tipo =encontrada.tipo
+      classeNome =encontrada.nome}
+
 
     const novo = new Heroi({
-      nome,
-      classeNome,
-      nivel,
-      img,
-      tipo});
+      nome: nome,
+      classe: classeNome,
+      nivel: nivel,
+      img: img,
+      tipo: tipo});
 
       setHerois(...herois, novo)
 
