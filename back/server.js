@@ -83,6 +83,29 @@ app.post("/Heroi", (req, res) => {
   res.status(201).json(novoHeroi);
 });
 
+app.patch("/Heroi/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const dadosNovos = req.body
+
+  const json = lerDados(caminhoHerois);
+  const dados = json.Herois;
+
+  const index = dados.findIndex(h => h.id == id)
+
+  if (index === -1) {
+    return res.status(404).json({ erro: "Herói não encontrado" })
+  }
+
+  dados[index] = {
+      ...dados[index],
+      ...dadosNovos     
+  }
+
+  salvarDados(json);
+
+  res.json(dados[index])
+})
+
 app.get("/HeroiId", (req, res) => {
   const dados = lerDados(caminho);
   
