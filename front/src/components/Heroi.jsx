@@ -1,6 +1,7 @@
 import React from "react";
 import { CriarHeroi } from "./CriarHeroi"
 import { PegarUltimoId } from "./PegarUltimoId"
+import { AtualizarHeroi} from "./AtualizarHeroi"
  
 
 export class Heroi{
@@ -43,16 +44,26 @@ export class Heroi{
         return heroi
     }
 
-    SetXp(valor){
-        this.xp += valor
-        
-        if(this.xp >= this.xpMax){            
-            this.xp -= this.xpMax
-            this.nivel += 1
-            this.xpMax += 50
-            return alert(`Subiu para o nivel ${this.nivel}`)       
+    SetXp(valor = 50){
+    if (typeof valor !== "number" || isNaN(valor)) return
+
+    this.xp += valor
+
+    while (this.xp >= this.xpMax) {
+        this.xp -= this.xpMax
+        this.nivel += 1
+
+        if (this.nivel >= 100) {
+            this.nivel = 100
+            this.xp = 0
+            break
         }
+
+        this.xpMax = 100 + 50 * (this.nivel - 1)
     }
+
+    AtualizarHeroi({id:this.id,nivel:this.nivel,xp:this.xp,xpMax:this.xpMax})
+}
 
     Recrutar(){
         return alert(`Heroi ${this.nome} foi recrutado 
@@ -61,6 +72,10 @@ export class Heroi{
 
     Excluir(){
         this.ativo = false 
+        AtualizarHeroi({
+            id: this.id,
+            ativo: this.ativo
+        })
     }
 
     SetStatus(){

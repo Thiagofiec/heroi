@@ -84,6 +84,7 @@ app.post("/Heroi", (req, res) => {
 });
 
 app.patch("/Heroi/:id", (req, res) => {
+  //colocar validaçoes dps 
   const id = parseInt(req.params.id);
   const dadosNovos = req.body
 

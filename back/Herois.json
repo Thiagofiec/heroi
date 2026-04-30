@@ -1,115 +1,48 @@
 {
   "Herois": [
     {
-      "nome": "heroi5",
-      "classe": "guerreiro",
-      "xp": 0,
-      "xpMax": 100,
-      "img": "./assets/Paladin.svj",
+      "nome": "Mano",
+      "classe": "Guerreiro",
+      "nivel": 8,
+      "xp": 50,
+      "xpMax": 450,
+      "img": "a",
       "tipo": "dps",
       "ativo": true,
       "id": 0
     },
     {
-      "nome": "heroi10",
-      "classe": "barbaro",
-      "xp": 0,
-      "xpMax": 100,
-      "img": "./assets/Paladin.svj",
-      "tipo": "dps",
+      "nome": "Praça",
+      "classe": "Paladino",
+      "nivel": 2,
+      "xp": 100,
+      "xpMax": 150,
+      "img": "a",
+      "tipo": "tank",
       "ativo": true,
       "id": 1
     },
     {
-      "nome": "heroi15",
-      "classe": "patrulherp",
-      "xp": 0,
-      "xpMax": 100,
-      "img": "./assets/Paladin.svj",
-      "tipo": "dps",
+      "nome": "maligno",
+      "classe": "General",
+      "nivel": 3,
+      "xp": 50,
+      "xpMax": 200,
+      "img": "a",
+      "tipo": "suporte",
       "ativo": true,
       "id": 2
     },
     {
-      "nome": "mano",
-      "nivel": "2",
+      "nome": "abcd",
+      "classe": "Guerreiro",
+      "nivel": 1,
       "xp": 0,
-      "xpMax": 150,
+      "xpMax": 100,
       "img": "a",
       "tipo": "dps",
       "ativo": true,
       "id": 3
-    },
-    {
-      "nome": "mano2",
-      "nivel": "1",
-      "xp": 0,
-      "xpMax": 100,
-      "img": "a",
-      "tipo": "dps",
-      "ativo": true,
-      "id": 4
-    },
-    {
-      "nome": "mano3",
-      "nivel": "2",
-      "xp": 0,
-      "xpMax": 150,
-      "img": "a",
-      "tipo": "suporte",
-      "ativo": true,
-      "id": 5
-    },
-    {
-      "nome": "feag fsh",
-      "nivel": "1",
-      "xp": 0,
-      "xpMax": 100,
-      "img": "a",
-      "tipo": "tank",
-      "ativo": true,
-      "id": 6
-    },
-    {
-      "nome": "lendario",
-      "nivel": "1",
-      "xp": 0,
-      "xpMax": 100,
-      "img": "a",
-      "tipo": "tank",
-      "ativo": true,
-      "id": 7
-    },
-    {
-      "nome": "lendario2",
-      "nivel": "3",
-      "xp": 0,
-      "xpMax": 200,
-      "img": "a",
-      "tipo": "dps",
-      "ativo": true,
-      "id": 8
-    },
-    {
-      "nome": "lendario3",
-      "nivel": "2",
-      "xp": 0,
-      "xpMax": 150,
-      "img": "a",
-      "tipo": "tank",
-      "ativo": true,
-      "id": 9
-    },
-    {
-      "nome": "funciona",
-      "classe": "Sentinela",
-      "nivel": "1",
-      "xp": 0,
-      "xpMax": 100,
-      "img": "a",
-      "tipo": "tank",
-      "ativo": true,
-      "id": 10
     }
   ]
 }

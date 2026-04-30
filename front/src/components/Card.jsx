@@ -1,7 +1,7 @@
 import {Heroi} from "./Heroi"
  
 
-export function Card({ heroi}) {
+export function Card({ heroi, onDelete,onXpPlus}) {
 
 
   const cardStyle = {
@@ -52,7 +52,7 @@ export function Card({ heroi}) {
 
       <button
         type="button"
-        //onClick={handleExcluir}
+        onClick={onDelete}
         className="
           relative inline-flex items-center justify-center
           mt-2 px-5 py-2.5 text-sm font-semibold text-white
@@ -78,7 +78,7 @@ export function Card({ heroi}) {
 
       <button
         className="mt-2 px-3 py-1 bg-indigo-600 text-white rounded"
-        //onClick={heroi => setXp(10)}
+        onClick={onXpPlus}
       >
         LVL UP ⬆️
       </button>

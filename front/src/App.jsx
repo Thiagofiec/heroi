@@ -28,7 +28,7 @@ export function App() {
 
   useEffect(() =>{
   BuscarClasses().then(dados => {
-    setClasses(...classes, dados)
+    setClasses(dados)
   })
   }, [])
   
@@ -64,7 +64,7 @@ export function App() {
       return
     }
 
-    setOuro[ouro - preco]
+    setOuro(prev => prev - preco)
     const img = "a"
 
     const encontrada = classes.find(c => c.id === Number(classe));
@@ -80,7 +80,7 @@ export function App() {
       img: img,
       tipo: tipo});
 
-      setHerois(...herois, novo)
+      setHerois(prev => [...prev, novo])
 
       setNome('')
       setClasse(1)
@@ -96,13 +96,39 @@ export function App() {
     }
   }, [menuNHAberto]);
 
+  function uparHeroi(id, valor = 100) {
+    setHerois(prev =>
+      prev.map(h => {
+        if (h.id !== id) return h
+
+        const atualizado = Heroi.fromJSON(h)
+        atualizado.SetXp(valor)
+        return atualizado
+      })
+    )
+  }
+
+  function excluirHeroi(id) {
+    setHerois(prev =>
+      prev.map(h => {
+        if (h.id !== id) return h
+
+        const atualizado = Heroi.fromJSON(h)
+        atualizado.Excluir()
+        return atualizado
+      })
+    )
+  }
+
   
 
   return (
     <> 
     <div>
       {herois.map(heroi => (
-        <Card key={heroi.id} value={heroi} heroi={heroi} />
+        <Card key={heroi.id} heroi={heroi}
+        onXpPlus={() => uparHeroi(heroi.id, 100)}
+        onExcluir={() => excluirHeroi(heroi.id)} />
       ))}
 
       <button onClick={() => setMenuNHAberto(true)}>novo heroi</button>
@@ -124,12 +150,12 @@ export function App() {
                 <label>nome</label>
                 <input value={nome} type="text" onChange={(e) => setNome(e.target.value)}/>
                 <label>classe</label>
-                <select value={classe} onChange={(e) => setClasse(e.target.value)}>
+                <select value={classe} onChange={(e) => setClasse(Number(e.target.value))}>
                   {classes.map(classe => (
                     <option key={classe.id} value={classe.id}>{classe.nome}</option>
                   ))}
                 </select>
-                <input value={nivel} type="number" min={1} max={100}  onChange={(e) => setNivel(e.target.value)}/>
+                <input value={nivel} type="number" min={1} max={100}  onChange={(e) => setNivel(Number(e.target.value))}/>
                 <button type="submit">criar personagem</button>
               </form>
               <button
