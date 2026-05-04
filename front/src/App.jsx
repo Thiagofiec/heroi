@@ -35,6 +35,7 @@ export function App() {
  // cadastro de novo heroi
   const [menuNHAberto, setMenuNHAberto] = useState(false);
   const [nome,setNome] = useState('')
+  const [filtro, setFiltro] = useState(0)
   const [classe,setClasse] = useState(1)
   const [nivel,setNivel] = useState(0)
 
@@ -124,11 +125,21 @@ export function App() {
 
   return (
     <> 
+    <select value={filtro} onChange={(e) => setFiltro(e.target.value)}>
+      <option value="0">Todos</option>
+      <option value="dps">Dano</option>
+      <option value="tank">Tank</option>
+      <option value="suporte">Suporte</option>
+
+    </select>
+
     <div>
-      {herois.map(heroi => (
+      {herois.filter(heroi => heroi.ativo == true)
+      .filter(heroi => filtro == 0 ? true : heroi.tipo == filtro )
+      .map(heroi => (
         <Card key={heroi.id} heroi={heroi}
         onXpPlus={() => uparHeroi(heroi.id, 100)}
-        onExcluir={() => excluirHeroi(heroi.id)} />
+        onDelete={() => excluirHeroi(heroi.id)} />
       ))}
 
       <button onClick={() => setMenuNHAberto(true)}>novo heroi</button>

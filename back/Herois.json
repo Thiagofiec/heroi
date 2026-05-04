@@ -14,35 +14,57 @@
     {
       "nome": "Praça",
       "classe": "Paladino",
-      "nivel": 2,
-      "xp": 100,
-      "xpMax": 150,
+      "nivel": 5,
+      "xp": 0,
+      "xpMax": 300,
       "img": "a",
       "tipo": "tank",
-      "ativo": true,
+      "ativo": false,
       "id": 1
     },
     {
       "nome": "maligno",
       "classe": "General",
-      "nivel": 3,
-      "xp": 50,
-      "xpMax": 200,
+      "nivel": 10,
+      "xp": 400,
+      "xpMax": 550,
       "img": "a",
       "tipo": "suporte",
-      "ativo": true,
+      "ativo": false,
       "id": 2
     },
     {
-      "nome": "abcd",
+      "nome": "funciona2",
       "classe": "Guerreiro",
+      "nivel": 4,
+      "xp": 150,
+      "xpMax": 250,
+      "img": "a",
+      "tipo": "dps",
+      "ativo": false,
+      "id": 3
+    },
+    {
+      "nome": "sobstituto",
+      "classe": "Sentinela",
+      "nivel": 12,
+      "xp": 200,
+      "xpMax": 650,
+      "img": "a",
+      "tipo": "tank",
+      "ativo": false,
+      "id": 4
+    },
+    {
+      "nome": "supotrador",
+      "classe": "Clerigo",
       "nivel": 1,
       "xp": 0,
       "xpMax": 100,
       "img": "a",
-      "tipo": "dps",
+      "tipo": "suporte",
       "ativo": true,
-      "id": 3
+      "id": 5
     }
   ]
 }

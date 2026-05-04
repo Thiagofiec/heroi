@@ -15,9 +15,9 @@ export class Heroi{
         this.xpMax = 100 + 50 * (this.nivel - 1)  
         this.img = img;
         this.tipo = tipo;
-        this.ativo = true;
         
         if (salvar) {
+            this.ativo = true;
             CriarHeroi(
             this.nome,
             this.classe,
@@ -62,7 +62,11 @@ export class Heroi{
         this.xpMax = 100 + 50 * (this.nivel - 1)
     }
 
-    AtualizarHeroi({id:this.id,nivel:this.nivel,xp:this.xp,xpMax:this.xpMax})
+    AtualizarHeroi({
+        id:this.id,
+        nivel:this.nivel,
+        xp:this.xp,
+        xpMax:this.xpMax})
 }
 
     Recrutar(){
