@@ -4,7 +4,7 @@
       "nome": "Mano",
       "classe": "Guerreiro",
       "nivel": 8,
-      "xp": 50,
+      "xp": 250,
       "xpMax": 450,
       "img": "a",
       "tipo": "dps",
@@ -58,13 +58,68 @@
     {
       "nome": "supotrador",
       "classe": "Clerigo",
-      "nivel": 1,
-      "xp": 0,
-      "xpMax": 100,
+      "nivel": 7,
+      "xp": 50,
+      "xpMax": 400,
       "img": "a",
       "tipo": "suporte",
       "ativo": true,
       "id": 5
+    },
+    {
+      "nome": "caro",
+      "classe": "General",
+      "nivel": 10,
+      "xp": 0,
+      "xpMax": 550,
+      "img": "a",
+      "tipo": "suporte",
+      "ativo": true,
+      "id": 6
+    },
+    {
+      "nome": "não tão caro",
+      "classe": "Sentinela",
+      "nivel": 5,
+      "xp": 0,
+      "xpMax": 300,
+      "img": "a",
+      "tipo": "tank",
+      "ativo": true,
+      "id": 7
+    },
+    {
+      "nome": "caro demais",
+      "classe": "Paladino",
+      "nivel": 4,
+      "xp": 50,
+      "xpMax": 250,
+      "img": "a",
+      "tipo": "tank",
+      "ativo": true,
+      "id": 8
+    },
+    {
+      "nome": "lenda",
+      "classe": "Guerreiro",
+      "nivel": 100,
+      "xp": 0,
+      "xpMax": 5050,
+      "img": "a",
+      "tipo": "dps",
+      "ativo": true,
+      "id": 9
+    },
+    {
+      "nome": "aaa",
+      "classe": "Paladino",
+      "nivel": 99,
+      "xp": 0,
+      "xpMax": 5000,
+      "img": "a",
+      "tipo": "tank",
+      "ativo": true,
+      "id": 10
     }
   ]
 }

@@ -15,9 +15,15 @@ export function App() {
 
 
   
+  function setOuroStorage(){
+    localStorage.setItem("ouro", 100)
+  }
+
  const [herois, setHerois] = useState([])
  const [classes,setClasses] = useState([])
- const [ouro,setOuro] = useState(100);
+ const [ouro,setOuro] = useState(() => {
+  const ouro = localStorage.getItem("ouro");
+  return ouro || setOuroStorage()});
 
  useEffect(() =>{
   BuscarHerois().then(dados => {
@@ -31,6 +37,11 @@ export function App() {
     setClasses(dados)
   })
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem("ouro", ouro)
+  }, [ouro])
+
   
  // cadastro de novo heroi
   const [menuNHAberto, setMenuNHAberto] = useState(false);
@@ -40,13 +51,30 @@ export function App() {
   const [nivel,setNivel] = useState(0)
 
 
+  const [menuRoubo, setMenuRoubo] = useState(false)
+  const [ouroRoubo, setOuroRoubo] = useState(0)
+
+  function roubarOuro() {
+      setOuro(ouroRoubo)
+  }
+
+
+  function comprarHeroi() {
+    let custo = 100
+    for (let i = 0; i < nivel; i++) {
+      custo += 50 * i
+    }
+
+    return custo
+  }
 
   function novoHeroi(e) {
     e.preventDefault();
 
-    const preco = 10 * nivel 
+     const preco = comprarHeroi()
 
     if(ouro - preco < 0){
+    alert(`Ouro insuficiente para este heroi, preço:${preco}` )
       return
     } 
 
@@ -56,7 +84,12 @@ export function App() {
     
 
     if(nome.length < 3){
-      console.log("nome muito curto")
+      alert("Heroi com este nome não pode ser encontrado, procure por um nome mais extenso")
+      return
+    }
+
+    if(nome.length > 20){
+      alert("Heroi com este nome não pode ser encontrado, procure por um nome menos extenso")
       return
     }
 
@@ -97,7 +130,22 @@ export function App() {
     }
   }, [menuNHAberto]);
 
+  useEffect(() => {
+    if (menuRoubo) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [menuRoubo]);
+
   function uparHeroi(id, valor = 100) {
+    if( ouro < 50 ){
+      alert("ouro insufuciente")
+      return
+    }
+
+    setOuro(ouro - 50)
+    
     setHerois(prev =>
       prev.map(h => {
         if (h.id !== id) return h
@@ -125,6 +173,8 @@ export function App() {
 
   return (
     <> 
+    <p>{ouro}</p>
+
     <select value={filtro} onChange={(e) => setFiltro(e.target.value)}>
       <option value="0">Todos</option>
       <option value="dps">Dano</option>
@@ -180,6 +230,35 @@ export function App() {
         </>
       )}
     </div> 
+    <button onClick={() => setMenuRoubo(true)}>menu de cheats</button>
+    {menuRoubo && (
+      <>
+      {/* Overlay escuro */}
+          <div
+            className="fixed inset-0 bg-black/50 z-40"
+            onClick={() => setMenuRoubo(false)}
+          ></div>
+
+          <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-xl shadow-xl w-80">
+              <h2 className="text-xl font-bold mb-4">menu de cheats</h2>
+
+              <form onSubmit={roubarOuro}>
+                <label>dinheiro</label>
+                <input value={ouroRoubo} type="number" onChange={(e) => setOuroRoubo(e.target.value)}/>
+                
+                <button type="submit">adicionar dinheiro</button>
+              </form>
+              <button
+                onClick={() => setMenuRoubo(false)}
+                className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+      </>
+    )}
 
     </>
   )

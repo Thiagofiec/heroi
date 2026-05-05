@@ -63,25 +63,29 @@ export function Card({ heroi, onDelete,onXpPlus}) {
           active:scale-[0.97]
           transition-all duration-200
           focus:outline-none focus:ring-4 focus:ring-red-300
-        "
+         "
       >
         Excluir ☠️
       </button>
 
-      {/* Barra de EXP
-      <div className="h-4 bg-gray-200 rounded-full w-full mt-2">
-        <div
-          className="h-full bg-indigo-600 rounded-full transition-all"
-          style={{ width: `${xpPercent}%` }}
-        />
-      </div> */}
+      {heroi.nivel < 100 ? (
+  <>
+    <p>{heroi.xpMax - heroi.xp} até o próximo nível</p>
 
-      <button
-        className="mt-2 px-3 py-1 bg-indigo-600 text-white rounded"
-        onClick={onXpPlus}
-      >
-        LVL UP ⬆️
-      </button>
+    <button
+      className="mt-2 px-3 py-1 bg-indigo-600 text-white rounded"
+      onClick={onXpPlus}
+    >
+      +100 XP | -50 ouro
+    </button>
+  </>
+) : (
+  <button
+    className="mt-2 px-3 py-1 bg-indigo-600 text-white rounded"
+  >
+    Poder máximo adquirido
+  </button>
+)}
     </div>
   );
 }
