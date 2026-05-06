@@ -1,7 +1,7 @@
 import {Heroi} from "./Heroi"
  
 
-export function Card({ heroi, onDelete,onXpPlus}) {
+export function Card({ heroi, onRecruit ,onDelete,onXpPlus}) {
 
 
   const cardStyle = {
@@ -34,7 +34,7 @@ export function Card({ heroi, onDelete,onXpPlus}) {
 
       <button
         type="button"
-        //onClick={handleRecrutar}
+        onClick={onRecruit}
         className="
           relative inline-flex items-center justify-center
           px-5 py-2.5 text-sm font-semibold text-white

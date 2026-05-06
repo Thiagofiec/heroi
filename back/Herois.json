@@ -118,7 +118,7 @@
       "xpMax": 5000,
       "img": "a",
       "tipo": "tank",
-      "ativo": true,
+      "ativo": false,
       "id": 10
     }
   ]

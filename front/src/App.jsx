@@ -22,8 +22,12 @@ export function App() {
  const [herois, setHerois] = useState([])
  const [classes,setClasses] = useState([])
  const [ouro,setOuro] = useState(() => {
-  const ouro = localStorage.getItem("ouro");
+ const ouro = localStorage.getItem("ouro");
   return ouro || setOuroStorage()});
+ const [party, setParty] = useState(() => {
+  const party = localStorage.getItem("party");
+  return party ? JSON.parse(party) : [];
+});
 
  useEffect(() =>{
   BuscarHerois().then(dados => {
@@ -42,21 +46,24 @@ export function App() {
     localStorage.setItem("ouro", ouro)
   }, [ouro])
 
+  useEffect(() => {
+    localStorage.setItem("party", JSON.stringify(party))
+  }, [party])
+
+  // menu cheat
   
+  const [menuRoubo, setMenuRoubo] = useState(false)
+  const [ouroRoubo, setOuroRoubo] = useState(0)
+
+  function roubarOuro() {
+      setOuro(ouroRoubo)
+  }  
  // cadastro de novo heroi
   const [menuNHAberto, setMenuNHAberto] = useState(false);
   const [nome,setNome] = useState('')
   const [filtro, setFiltro] = useState(0)
   const [classe,setClasse] = useState(1)
   const [nivel,setNivel] = useState(0)
-
-
-  const [menuRoubo, setMenuRoubo] = useState(false)
-  const [ouroRoubo, setOuroRoubo] = useState(0)
-
-  function roubarOuro() {
-      setOuro(ouroRoubo)
-  }
 
 
   function comprarHeroi() {
@@ -138,6 +145,21 @@ export function App() {
     }
   }, [menuRoubo]);
 
+  function recrutarHeroi(heroi){
+    console.log("a")
+
+    if (party.length >= 4){
+      alert('PARTY cheia')
+      return
+    }
+    setParty(prev => [...prev,heroi])
+    console.log(party)
+  }
+
+  function mostrarParty() {
+    alert(`${party}`)
+  }
+  
   function uparHeroi(id, valor = 100) {
     if( ouro < 50 ){
       alert("ouro insufuciente")
@@ -188,6 +210,7 @@ export function App() {
       .filter(heroi => filtro == 0 ? true : heroi.tipo == filtro )
       .map(heroi => (
         <Card key={heroi.id} heroi={heroi}
+        onRecruit={() => recrutarHeroi(heroi)}
         onXpPlus={() => uparHeroi(heroi.id, 100)}
         onDelete={() => excluirHeroi(heroi.id)} />
       ))}
@@ -229,6 +252,8 @@ export function App() {
           </div>
         </>
       )}
+      <p>-------------------------</p>
+      <button onClick={mostrarParty}>ver party</button>
     </div> 
     <button onClick={() => setMenuRoubo(true)}>menu de cheats</button>
     {menuRoubo && (
